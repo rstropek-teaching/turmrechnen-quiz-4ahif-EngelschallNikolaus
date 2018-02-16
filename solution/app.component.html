@@ -17,13 +17,15 @@
   <tr>
     <td></td>
     <td>
-      <button (click)="calculate()">Calculate</button>
+      <button (click)="calculate()" [disabled]="height<2">Calculate</button>
     </td>
   </tr>
 </table>
 
-<ul>
-  <li *ngFor="let row of tower">
-    {{row}}
-  </li>
-</ul>
+<table>
+  <tr *ngFor="let row of tower">
+    <td *ngFor="let item of row; index as i" [align]="i % 3 == 2 ? 'left' : 'right'">
+       {{item}}
+    </td>
+  </tr>
+</table>
